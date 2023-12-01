@@ -36,7 +36,7 @@ router.get("/users:id", getUser);
  * @swagger
  * /api/users:
  *   post:
- *     summary: Crear un Reserva.
+ *     summary: Crear un Usuario.
  *     tags: [Usuarios]
  *     requestBody:
  *       required: true
@@ -109,6 +109,39 @@ router.get("/users:id", getUser);
 */
 
 router.post("/users", UserRegisterValidation(), createUser);
+
+/**
+ * @swagger
+ * /api/users/login:
+ *   post:
+ *     summary: Login de usuario.
+ *     tags: [Usuarios]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *              email:
+ *                  type: string
+ *                  description: El correo del Usuario.
+ *                  example: 
+ *              password:
+ *                  type: string
+ *                  description: La contraseña del Usuario.
+ *                  example:        
+ *     responses:
+ *       200:
+ *         description: Created
+ *         content:
+ *           application/json:
+ *               schema:
+ *                  type: object
+
+ 
+*/
+
 router.post("/users/login", UserLoginValidation(), loginUser);
 router.put("/users", updateUser);
 router.delete("/users", deleteUser);
